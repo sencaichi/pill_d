@@ -14,6 +14,7 @@
 		7047923C2A59AB7300A9A5DB /* Pill_dTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047923B2A59AB7300A9A5DB /* Pill_dTests.swift */; };
 		704792462A59AB7300A9A5DB /* Pill_dUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792452A59AB7300A9A5DB /* Pill_dUITests.swift */; };
 		704792482A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */; };
+		70D5AE3B2A5CCB6E00400D97 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5AE3A2A5CCB6E00400D97 /* Medication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		704792412A59AB7300A9A5DB /* Pill'dUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pill'dUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		704792452A59AB7300A9A5DB /* Pill_dUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITests.swift; sourceTree = "<group>"; };
 		704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		70D5AE3A2A5CCB6E00400D97 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,10 @@
 		704792292A59AB7000A9A5DB /* Pill'd */ = {
 			isa = PBXGroup;
 			children = (
+				70D5AE392A5CAFCB00400D97 /* ViewModel */,
+				704792562A59DC2E00A9A5DB /* View */,
+				704792552A59ACA600A9A5DB /* Helpers */,
+				704792542A59AC8B00A9A5DB /* Model */,
 				7047922A2A59AB7000A9A5DB /* Pill_dApp.swift */,
 				7047922C2A59AB7000A9A5DB /* ContentView.swift */,
 				7047922E2A59AB7200A9A5DB /* Assets.xcassets */,
@@ -125,6 +131,35 @@
 				704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */,
 			);
 			path = "Pill'dUITests";
+			sourceTree = "<group>";
+		};
+		704792542A59AC8B00A9A5DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70D5AE3A2A5CCB6E00400D97 /* Medication.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		704792552A59ACA600A9A5DB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		704792562A59DC2E00A9A5DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		70D5AE392A5CAFCB00400D97 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7047922D2A59AB7000A9A5DB /* ContentView.swift in Sources */,
+				70D5AE3B2A5CCB6E00400D97 /* Medication.swift in Sources */,
 				7047922B2A59AB7000A9A5DB /* Pill_dApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
