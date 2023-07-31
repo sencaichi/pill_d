@@ -14,6 +14,7 @@
 		7047923C2A59AB7300A9A5DB /* Pill_dTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047923B2A59AB7300A9A5DB /* Pill_dTests.swift */; };
 		704792462A59AB7300A9A5DB /* Pill_dUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792452A59AB7300A9A5DB /* Pill_dUITests.swift */; };
 		704792482A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */; };
+		70BE23642A78768E00D711A8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE23632A78768E00D711A8 /* Home.swift */; };
 		70D5AE3B2A5CCB6E00400D97 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5AE3A2A5CCB6E00400D97 /* Medication.swift */; };
 		70D5AE3D2A5CFFE600400D97 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5AE3C2A5CFFE600400D97 /* Dose.swift */; };
 		70D5AE3F2A5D01BA00400D97 /* MedicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5AE3E2A5D01BA00400D97 /* MedicationForm.swift */; };
@@ -49,6 +50,7 @@
 		704792412A59AB7300A9A5DB /* Pill'dUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pill'dUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		704792452A59AB7300A9A5DB /* Pill_dUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITests.swift; sourceTree = "<group>"; };
 		704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		70BE23632A78768E00D711A8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "Pill'd/Home.swift"; sourceTree = SOURCE_ROOT; };
 		70D5AE3A2A5CCB6E00400D97 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		70D5AE3C2A5CFFE600400D97 /* Dose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
 		70D5AE3E2A5D01BA00400D97 /* MedicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationForm.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		704792562A59DC2E00A9A5DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				70BE23632A78768E00D711A8 /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				70D5AE3B2A5CCB6E00400D97 /* Medication.swift in Sources */,
 				70D5AE412A5D04F100400D97 /* Date+Extensions.swift in Sources */,
 				70D5AE432A5D077C00400D97 /* View+Extensions.swift in Sources */,
+				70BE23642A78768E00D711A8 /* Home.swift in Sources */,
 				7047922B2A59AB7000A9A5DB /* Pill_dApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
