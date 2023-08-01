@@ -11,6 +11,7 @@ struct Home: View {
     @State private var currentDate: Date = .init()
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
+    @State private var createWeek: Bool = false
     @Namespace private var animation
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
@@ -54,15 +55,22 @@ struct Home: View {
                 ForEach(weekSlider.indices, id: \.self) { index in
                     let week = weekSlider[index]
                     WeekView(week)
+                        .padding(.horizontal, 15)
                         .tag(index)
                 }
             }
+            .padding(.horizontal, -15)
             .tabViewStyle(.page(indexDisplayMode: .never))
             .frame(height: 90)
         }
         .hSpacing(.leading)
         .padding(15)
         .background(.white)
+//        .onChange(of: currentWeekIndex, perform: <#(Int) -> Void#>, initial: false) { oldValue, newValue in
+//            if newValue == 0 || newValue == (weekSlider.count - 1) {
+//                createWeek = true
+//            }
+//        }
     }
     
     @ViewBuilder
@@ -97,7 +105,7 @@ struct Home: View {
                 }
                 .hSpacing(.center)
                 .onTapGesture {
-                    withAnimation() {
+                    withAnimation(.easeInOut) {
                         currentDate = day.date
                     }
                 }
