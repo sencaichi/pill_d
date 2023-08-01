@@ -12,10 +12,20 @@ struct Home: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
+    @State private var doses: [Dose] = sampleDoses.sorted(by: { $1.dateTime > $0.dateTime })
     @Namespace private var animation
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
             HeaderView()
+            
+            ScrollView(.vertical) {
+                VStack {
+                    DosesView()
+                }
+                .hSpacing(.center)
+                .vSpacing(.center)
+            }
+            .scrollIndicators(.hidden)
         })
         .vSpacing(.top)
         .onAppear(perform: {
@@ -66,11 +76,11 @@ struct Home: View {
         .hSpacing(.leading)
         .padding(15)
         .background(.white)
-//        .onChange(of: currentWeekIndex, perform: <#(Int) -> Void#>, initial: false) { oldValue, newValue in
-//            if newValue == 0 || newValue == (weekSlider.count - 1) {
-//                createWeek = true
-//            }
-//        }
+        .onChange(of: currentWeekIndex) { newValue in
+            if newValue == 0 || newValue == (weekSlider.count - 1) {
+                createWeek = true
+            }
+        }
     }
     
     @ViewBuilder
@@ -109,6 +119,55 @@ struct Home: View {
                         currentDate = day.date
                     }
                 }
+            }
+        }
+        .background {
+            GeometryReader {
+                let minX = $0.frame(in: .global).minX
+                
+                Color.clear
+                    .preference(key: OffsetKey.self, value: minX)
+                    .onPreferenceChange(OffsetKey.self) { value in
+                        if value.rounded() == 15 && createWeek {
+                            paginateWeek()
+                            createWeek = false
+                        }
+                     }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func DosesView() -> some View {
+        VStack(alignment: .leading, spacing: 35) {
+            ForEach($doses) { $dose in
+                DoseRowView(dose: $dose)
+                    .background(alignment: .leading) {
+                        if doses.last?.id != dose.id {
+                            Rectangle()
+                                .frame(width: 1)
+                                .offset(x: 8)
+                                .padding(.bottom, -35)
+                        }
+                    }
+            }
+        }
+        .padding([.vertical, .leading], 15)
+        .padding(.top, 15)
+    }
+    
+    func paginateWeek() {
+        if weekSlider.indices.contains(currentWeekIndex) {
+            if let firstDate = weekSlider[currentWeekIndex].first?.date, currentWeekIndex == 0 {
+                weekSlider.insert(firstDate.createPreviousWeek(), at: 0)
+                weekSlider.removeLast()
+                currentWeekIndex = 1
+            }
+            
+            if let lastDate = weekSlider[currentWeekIndex].last?.date, currentWeekIndex == (weekSlider.count - 1) {
+                weekSlider.append(lastDate.createNextWeek())
+                weekSlider.removeFirst()
+                currentWeekIndex = weekSlider.count - 2
             }
         }
     }
