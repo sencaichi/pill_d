@@ -38,7 +38,7 @@ struct DoseRowView: View {
             })
             .padding(15)
             .hSpacing(.leading)
-//            .background(.pink, in: .rect(EdgeInsets(top: 15, bottom: 15)))
+//            .background(.pink, in: rect(EdgeInsets(top: 15, bottom: 15)))
             .offset(y: -8)
         }
     }

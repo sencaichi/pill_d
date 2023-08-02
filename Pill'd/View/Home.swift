@@ -13,6 +13,7 @@ struct Home: View {
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
     @State private var doses: [Dose] = sampleDoses.sorted(by: { $1.dateTime > $0.dateTime })
+    @State private var createNewDose: Bool = false
     @Namespace private var animation
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
@@ -26,8 +27,23 @@ struct Home: View {
                 .vSpacing(.center)
             }
             .scrollIndicators(.hidden)
+            
+            Spacer()
+            TabBar()
         })
         .vSpacing(.top)
+        .overlay(alignment: .bottomTrailing, content: {
+            Button(action: {
+                createNewDose.toggle()
+            }, label: {
+                Image(systemName: "plus")
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .frame(width: 55, height: 55)
+                    .background(.blue.shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: Circle())
+            })
+            .padding(15)
+        })
         .onAppear(perform: {
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
@@ -42,6 +58,9 @@ struct Home: View {
                     weekSlider.append(lastDate.createNextWeek())
                 }
             }
+        })
+        .sheet(isPresented: $createNewDose, content: {
+            NewDoseView()
         })
     }
     

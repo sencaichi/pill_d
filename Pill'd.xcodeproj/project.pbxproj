@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7016CA222A7AF5090085AB0F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016CA212A7AF5090085AB0F /* TabBar.swift */; };
 		7047922B2A59AB7000A9A5DB /* Pill_dApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047922A2A59AB7000A9A5DB /* Pill_dApp.swift */; };
 		7047922D2A59AB7000A9A5DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047922C2A59AB7000A9A5DB /* ContentView.swift */; };
 		7047922F2A59AB7200A9A5DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7047922E2A59AB7200A9A5DB /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7016CA212A7AF5090085AB0F /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		704792272A59AB7000A9A5DB /* Pill'd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pill'd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7047922A2A59AB7000A9A5DB /* Pill_dApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dApp.swift; sourceTree = "<group>"; };
 		7047922C2A59AB7000A9A5DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				70BE23632A78768E00D711A8 /* Home.swift */,
 				708193F52A7968E7002615DD /* DoseRowView.swift */,
 				70FEF9212A7996320088C0D5 /* NewDoseView.swift */,
+				7016CA212A7AF5090085AB0F /* TabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				70D5AE3F2A5D01BA00400D97 /* MedicationForm.swift in Sources */,
 				70D5AE3D2A5CFFE600400D97 /* Dose.swift in Sources */,
 				7047922D2A59AB7000A9A5DB /* ContentView.swift in Sources */,
+				7016CA222A7AF5090085AB0F /* TabBar.swift in Sources */,
 				70FEF9222A7996320088C0D5 /* NewDoseView.swift in Sources */,
 				70D5AE3B2A5CCB6E00400D97 /* Medication.swift in Sources */,
 				70D5AE412A5D04F100400D97 /* Date+Extensions.swift in Sources */,
