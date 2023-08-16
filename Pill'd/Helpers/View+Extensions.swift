@@ -25,3 +25,9 @@ extension View {
         return Calendar.current.isDate(date, inSameDayAs: date2)
     }
 }
+
+extension Color {
+    static let BG = Color("BG")
+    static let PinkPilld = Color("PinkPilld")
+    static let PinkAccent = Color("PinkAccent")
+}

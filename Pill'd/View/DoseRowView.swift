@@ -12,19 +12,13 @@ struct DoseRowView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             Circle()
-                .fill(.blue)
+                .fill(Color.PinkPilld)
                 .frame(width: 10, height: 10)
                 .padding(4)
-            //                .background(.white.shadow(.drop(color: .black.opacity(0.1), radius: 3)))
                 .overlay {
                     Circle()
                         .frame(width: 50, height: 50)
                         .blendMode(.destinationOver)
-//                        .onTapGesture {
-//                            withAnimation(.snappy) {
-//
-//                            }
-//                        }
                 }
             
             VStack(alignment: .leading, spacing: 8, content: {
@@ -36,9 +30,9 @@ struct DoseRowView: View {
                     .font(.caption)
                     .foregroundStyle(.black)
             })
+            .background(Color.PinkPilld)
             .padding(15)
             .hSpacing(.leading)
-//            .background(.pink, in: rect(EdgeInsets(top: 15, bottom: 15)))
             .offset(y: -8)
         }
     }

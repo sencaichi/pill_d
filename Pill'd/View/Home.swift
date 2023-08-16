@@ -15,6 +15,7 @@ struct Home: View {
     @State private var doses: [Dose] = sampleDoses.sorted(by: { $1.dateTime > $0.dateTime })
     @State private var createNewDose: Bool = false
     @Namespace private var animation
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
             HeaderView()
@@ -28,22 +29,8 @@ struct Home: View {
             }
             .scrollIndicators(.hidden)
             
-            Spacer()
-            TabBar()
         })
         .vSpacing(.top)
-        .overlay(alignment: .bottomTrailing, content: {
-            Button(action: {
-                createNewDose.toggle()
-            }, label: {
-                Image(systemName: "plus")
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
-                    .frame(width: 55, height: 55)
-                    .background(.blue.shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: Circle())
-            })
-            .padding(15)
-        })
         .onAppear(perform: {
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
@@ -59,9 +46,6 @@ struct Home: View {
                 }
             }
         })
-        .sheet(isPresented: $createNewDose, content: {
-            NewDoseView()
-        })
     }
     
     @ViewBuilder
@@ -69,7 +53,7 @@ struct Home: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 5) {
                 Text(currentDate.format("MMMM"))
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(Color.PinkAccent)
                 
                 Text(currentDate.format("YYYY"))
                     .foregroundStyle(.gray)
@@ -119,13 +103,13 @@ struct Home: View {
                         .background(content: {
                             if isSameDate(day.date, currentDate) {
                                 Circle()
-                                    .fill(.blue)
+                                    .fill(Color.PinkPilld)
                                     .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
                             }
                             
                             if day.date.isToday {
                                 Circle()
-                                    .fill(.cyan)
+                                    .fill(Color.PinkAccent)
                                     .frame(width: 5, height: 5)
                                     .vSpacing(.bottom)
                                     .offset(y: 12)
