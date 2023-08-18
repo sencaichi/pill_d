@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct TabBar: View {
-    @Binding var index : Int
+    @Binding var index: Int
     var body: some View {
                 HStack{
                     Button(action: {
                         self.index = 1
                     }) {
                         Image("home")
-                            .imageScale(.large)
+                            .font(.system(size: 25))
                             .padding()
                     }
                     .foregroundColor(self.index == 1 ? Color.PinkAccent : Color.PinkPilld)
@@ -25,10 +25,10 @@ struct TabBar: View {
                     Button(action: {
                         self.index = 2
                     }) {
-                        Image("add").imageScale(.large)
+                        Image("add").font(.system(size: 50))
                     }
                     .foregroundColor(Color.PinkAccent)
-                    .offset(y: -25)
+                    .offset(x: 1, y: -25)
                     
                     Spacer(minLength: 0)
                     
@@ -36,12 +36,12 @@ struct TabBar: View {
                         self.index = 3
                     }) {
                         Image("heart")
-                            .imageScale(.large)
+                            .font(.system(size: 25))
                             .padding()
                     }.foregroundColor(self.index == 3 ? Color.PinkAccent : Color.PinkPilld)
                 }
                 .padding(.horizontal, 35)
-                .padding(.top, 35)
+                .padding(.top, 30)
                 .background(Color.white)
                 .clipShape(CShape())
     }
@@ -62,4 +62,3 @@ struct CShape : Shape {
         }
     }
 }
-
