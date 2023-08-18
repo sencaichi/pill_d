@@ -145,17 +145,9 @@ struct Home: View {
         VStack(alignment: .leading, spacing: 35) {
             ForEach($doses) { $dose in
                 DoseRowView(dose: $dose)
-                    .background(alignment: .leading) {
-                        if doses.last?.id != dose.id {
-                            Rectangle()
-                                .frame(width: 1)
-                                .offset(x: 8)
-                                .padding(.bottom, -35)
-                        }
-                    }
             }
         }
-        .padding([.vertical, .leading], 15)
+        .padding(.leading, 15)
         .padding(.top, 15)
     }
     

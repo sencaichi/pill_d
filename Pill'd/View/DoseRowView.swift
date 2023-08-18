@@ -12,7 +12,7 @@ struct DoseRowView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             Circle()
-                .fill(Color.PinkPilld)
+                .fill(Color.PinkAccent)
                 .frame(width: 10, height: 10)
                 .padding(4)
                 .overlay {
@@ -25,16 +25,24 @@ struct DoseRowView: View {
                 Text(dose.medication.name)
                     .fontWeight(.semibold)
                     .foregroundStyle(.black)
+                    .padding(.leading, 25)
                 
                 Label(dose.dateTime.format("hh:mm a"), systemImage: "clock")
                     .font(.caption)
                     .foregroundStyle(.black)
+                    .padding(.leading, 25)
             })
-            .background(Color.PinkPilld)
             .padding(15)
             .hSpacing(.leading)
             .offset(y: -8)
+            .background(RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10))
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
 
