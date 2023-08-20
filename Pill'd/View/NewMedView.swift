@@ -40,12 +40,21 @@ struct NewMedView: View {
             Divider()
                 .padding(.vertical, 10)
             
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 0) {
                 Text("Dosage")
                     .font(.callout)
                     .foregroundColor(.gray)
                 
                 HStack{
+                    
+                    Picker("Dose", selection: $medModel.medDosage) {
+                        ForEach(Array(stride(from: 0.0, through: 100.0, by: 0.5)), id: \.self) { value in
+                            Text(String(format: "%.1f", value))
+                        }
+                    }
+                    .pickerStyle(InlinePickerStyle())
+                    .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 5)
+                    
                     Picker("Pick a unit", selection: $medModel.medDosageUnit) {
                         let values: [String] = ["mg", "g", "mL", "L"]
                         ForEach(values, id: \.self) { value in
@@ -53,20 +62,9 @@ struct NewMedView: View {
                         }
                     }
                     .pickerStyle(InlinePickerStyle())
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray, lineWidth: 1)
-                        )
-
-                    Picker("Dose", selection: $medModel.medDosage) {
-                        ForEach(Array(stride(from: 0.0, through: 500.0, by: 50.0)), id: \.self) { value in
-                            Text(String(format: "%.1f", value))
-                        }
-                    }
-                    .pickerStyle(InlinePickerStyle())
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(alignment: .leading)
             
             Divider()
                 .padding(.vertical, 10)
@@ -96,9 +94,9 @@ struct NewMedView: View {
     }
 }
 
-//struct NewMedView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewMedView()
-//            .environmentObject(MedicationViewModel())
-//    }
-//}
+struct NewMedView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewMedView()
+            .environmentObject(MedicationViewModel())
+    }
+}

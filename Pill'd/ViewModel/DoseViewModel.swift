@@ -11,12 +11,12 @@ import CoreData
 class DoseViewModel: ObservableObject {
     @Published var openNewDose: Bool = false
     @Published var doseDateTime: Date = Date()
-//    @Published var doseMedication: Medication = Medication()
+//    @Published var doseMedication:
 
     func addDose(context: NSManagedObjectContext) -> Bool {
         let dose = Dose(context: context)
         dose.dateTime = doseDateTime
-//        dose.medication
+//        dose.medication = doseMedication
         
         if let _ = try? context.save() {
             return true
