@@ -25,24 +25,16 @@ struct DoseRowView: View {
                 Text(dose.medication.name)
                     .fontWeight(.semibold)
                     .foregroundStyle(.black)
-                    .padding(.leading, 25)
                 
                 Label(dose.dateTime.format("hh:mm a"), systemImage: "clock")
                     .font(.caption)
                     .foregroundStyle(.black)
-                    .padding(.leading, 25)
             })
             .padding(15)
             .hSpacing(.leading)
-            .offset(y: -8)
+            .offset(x: 20, y: -1)
             .background(RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10))
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
