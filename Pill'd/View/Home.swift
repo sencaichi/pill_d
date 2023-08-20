@@ -12,7 +12,7 @@ struct Home: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
-    @State private var doses: [Dose] = sampleDoses.sorted(by: { $1.dateTime > $0.dateTime })
+//    @State private var doses: [Dose] = sampleDoses.sorted(by: { $1.dateTime > $0.dateTime })
     @State private var createNewDose: Bool = false
     @Namespace private var animation
     
@@ -22,7 +22,7 @@ struct Home: View {
             
             ScrollView(.vertical) {
                 VStack {
-                    DosesView()
+//                    DosesView()
                 }
                 .hSpacing(.center)
                 .vSpacing(.center)
@@ -140,16 +140,16 @@ struct Home: View {
         }
     }
     
-    @ViewBuilder
-    func DosesView() -> some View {
-        VStack(alignment: .leading, spacing: 35) {
-            ForEach($doses) { $dose in
-                DoseRowView(dose: $dose)
-            }
-        }
-        .padding(.leading, 15)
-        .padding(.top, 15)
-    }
+//    @ViewBuilder
+//    func DosesView() -> some View {
+//        VStack(alignment: .leading, spacing: 35) {
+//            ForEach($doses) { $dose in
+//                DoseRowView(dose: $dose)
+//            }
+//        }
+//        .padding(.leading, 15)
+//        .padding(.top, 15)
+//    }
     
     func paginateWeek() {
         if weekSlider.indices.contains(currentWeekIndex) {

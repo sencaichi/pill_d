@@ -21,15 +21,15 @@ struct DoseRowView: View {
                         .blendMode(.destinationOver)
                 }
             
-            VStack(alignment: .leading, spacing: 8, content: {
-                Text(dose.medication.name)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.black)
-                
-                Label(dose.dateTime.format("hh:mm a"), systemImage: "clock")
-                    .font(.caption)
-                    .foregroundStyle(.black)
-            })
+//            VStack(alignment: .leading, spacing: 8, content: {
+//                Text(dose.medication.name)
+//                    .fontWeight(.semibold)
+//                    .foregroundStyle(.black)
+//
+//                Label(dose.dateTime.format("hh:mm a"), systemImage: "clock")
+//                    .font(.caption)
+//                    .foregroundStyle(.black)
+//            })
             .padding(15)
             .hSpacing(.leading)
             .offset(x: 20, y: -1)
