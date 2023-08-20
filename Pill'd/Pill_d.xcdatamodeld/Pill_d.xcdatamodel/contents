@@ -11,6 +11,8 @@
         <relationship name="medication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medication" inverseName="dose" inverseEntity="Medication"/>
     </entity>
     <entity name="Medication" representedClassName="Medication" parentEntity="Dose" syncable="YES" codeGenerationType="class">
+        <attribute name="dosageUnit" optional="YES" attributeType="String"/>
+        <attribute name="dosageValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="dosage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dosage" inverseName="dosage" inverseEntity="Dosage"/>

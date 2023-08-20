@@ -17,7 +17,6 @@
 		704792482A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */; };
 		707FC78C2A90461D00E87D4B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707FC78B2A90461D00E87D4B /* CoreData.framework */; };
 		707FC78F2A9046A500E87D4B /* Pill_d.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707FC78D2A9046A500E87D4B /* Pill_d.xcdatamodeld */; };
-		708193F62A7968E7002615DD /* DoseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708193F52A7968E7002615DD /* DoseRowView.swift */; };
 		70BE23642A78768E00D711A8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE23632A78768E00D711A8 /* Home.swift */; };
 		70BE23802A78ABC500D711A8 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE237F2A78ABC500D711A8 /* OffsetKey.swift */; };
 		70D011C22A917EAF00DC0E9F /* Dosage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D011C12A917EAF00DC0E9F /* Dosage+Extensions.swift */; };
@@ -64,7 +63,6 @@
 		704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		707FC78B2A90461D00E87D4B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		707FC78E2A9046A500E87D4B /* Pill_d.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill_d.xcdatamodel; sourceTree = "<group>"; };
-		708193F52A7968E7002615DD /* DoseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseRowView.swift; sourceTree = "<group>"; };
 		70BE23632A78768E00D711A8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "Pill'd/View/Home.swift"; sourceTree = SOURCE_ROOT; };
 		70BE237F2A78ABC500D711A8 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
 		70D011C12A917EAF00DC0E9F /* Dosage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dosage+Extensions.swift"; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				70BE23632A78768E00D711A8 /* Home.swift */,
-				708193F52A7968E7002615DD /* DoseRowView.swift */,
 				70FEF9212A7996320088C0D5 /* NewDoseView.swift */,
 				7016CA212A7AF5090085AB0F /* TabBar.swift */,
 				70D012002A919EC300DC0E9F /* AccountView.swift */,
@@ -358,7 +355,6 @@
 				70D5AE3B2A5CCB6E00400D97 /* Medication.swift in Sources */,
 				70D5AE412A5D04F100400D97 /* Date+Extensions.swift in Sources */,
 				70D5AE432A5D077C00400D97 /* View+Extensions.swift in Sources */,
-				708193F62A7968E7002615DD /* DoseRowView.swift in Sources */,
 				70D012032A91A25D00DC0E9F /* MedicationViewModel.swift in Sources */,
 				70D011FF2A919CA700DC0E9F /* Persistence.swift in Sources */,
 				70BE23802A78ABC500D711A8 /* OffsetKey.swift in Sources */,

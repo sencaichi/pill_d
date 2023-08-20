@@ -12,9 +12,12 @@ struct Home: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
-//    @State private var doses: [Dose] = sampleDoses.sorted(by: { $1.dateTime > $0.dateTime })
     @State private var createNewDose: Bool = false
     @Namespace private var animation
+    @StateObject var doseModel: DoseViewModel = .init()
+    @StateObject var medModel: MedicationViewModel = .init()
+    
+    @FetchRequest(entity: Dose.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Dose.dateTime, ascending: false)], predicate: nil, animation: .easeInOut) var doses: FetchedResults<Dose>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
@@ -140,16 +143,46 @@ struct Home: View {
         }
     }
     
-//    @ViewBuilder
-//    func DosesView() -> some View {
-//        VStack(alignment: .leading, spacing: 35) {
-//            ForEach($doses) { $dose in
-//                DoseRowView(dose: $dose)
-//            }
-//        }
-//        .padding(.leading, 15)
-//        .padding(.top, 15)
-//    }
+    @ViewBuilder
+    func DosesView() -> some View {
+        VStack(alignment: .leading, spacing: 35) {
+            ForEach(doses) { dose in
+                DoseRowView(dose: dose)
+            }
+        }
+        .padding(.leading, 15)
+        .padding(.top, 15)
+    }
+    
+    @ViewBuilder
+    func DoseRowView(dose: Dose) -> some View {
+            HStack(alignment: .top, spacing: 15) {
+                Circle()
+                    .fill(Color.PinkAccent)
+                    .frame(width: 10, height: 10)
+                    .padding(4)
+                    .overlay {
+                        Circle()
+                            .frame(width: 50, height: 50)
+                            .blendMode(.destinationOver)
+                    }
+                
+                VStack(alignment: .leading, spacing: 8, content: {
+//                    Text(dose.medication.name)
+//                        .fontWeight(.semibold)
+//                        .foregroundStyle(.black)
+                    Label {
+                        Text((dose.dateTime ?? Date()).formatted(date: .omitted, time: .standard))
+                    } icon: {
+                        Image(systemName: "clock")
+                    }
+                })
+                .padding(15)
+                .hSpacing(.leading)
+                .offset(x: 20, y: -1)
+                .background(RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10))
+            }
+        }
     
     func paginateWeek() {
         if weekSlider.indices.contains(currentWeekIndex) {

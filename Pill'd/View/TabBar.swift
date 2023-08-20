@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     @Binding var index: Int
+    @Binding var openEditMed: Bool
     var body: some View {
                 HStack{
                     Button(action: {
@@ -24,6 +25,7 @@ struct TabBar: View {
                     
                     Button(action: {
                         self.index = 2
+                        openEditMed.toggle()
                     }) {
                         Image("add").font(.system(size: 50))
                     }
@@ -63,8 +65,3 @@ struct CShape : Shape {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
