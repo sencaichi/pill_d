@@ -78,12 +78,6 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .preferredColorScheme(.light)
         .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
-        .fullScreenCover(isPresented: $medModel.openEditMed) {
-            medModel.resetMedData()
-        } content: {
-            NewMedView()
-                .environmentObject(medModel)
-        }
         .edgesIgnoringSafeArea(.bottom)
     }
 }
