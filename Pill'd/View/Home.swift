@@ -15,7 +15,6 @@ struct Home: View {
     @State private var createNewDose: Bool = false
     @Namespace private var animation
     @StateObject var doseModel: DoseViewModel = .init()
-    @StateObject var medModel: MedicationViewModel = .init()
     
     @FetchRequest(entity: Dose.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Dose.dateTime, ascending: false)], predicate: nil, animation: .easeInOut) var doses: FetchedResults<Dose>
     

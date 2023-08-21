@@ -17,17 +17,9 @@ struct AccountView: View {
             Text("Your Medications")
                 .font(.title3.bold())
                 .frame(maxWidth: .infinity)
-                .overlay(alignment: .leading) {
-                    Button {
-                        newAccountViewContext.dismiss()
-                    } label: {
-                        Image(systemName: "arrow.left")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                    }
-                }
             MedsView()
         }
+        .vSpacing(.top)
     }
     
     @ViewBuilder
@@ -57,8 +49,12 @@ struct AccountView: View {
                     Text(med.name ?? "")
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
+                    HStack {
+                        Text("\(med.dosageValue)")
+                        Text(med.dosageUnit ?? "")
+                    }
                     Label {
-                        Text("\(String(med.duration)) + hours")
+                        Text("\(String(med.duration)) hours")
                     } icon: {
                         Image(systemName: "clock")
                     }

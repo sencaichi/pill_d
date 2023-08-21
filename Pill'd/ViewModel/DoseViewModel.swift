@@ -9,9 +9,11 @@ import SwiftUI
 import CoreData
 
 class DoseViewModel: ObservableObject {
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Medication.name, ascending: true)]) var medications: FetchedResults<Medication>
+
     @Published var openNewDose: Bool = false
     @Published var doseDateTime: Date = Date()
-//    @Published var doseMedication:
+    @Published var doseMedication: Medication?
 
     func addDose(context: NSManagedObjectContext) -> Bool {
         let dose = Dose(context: context)
