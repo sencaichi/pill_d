@@ -11,16 +11,16 @@ import CoreData
 class MedicationViewModel: ObservableObject {
     @Published var openEditMed: Bool = false
     @Published var medName: String = ""
-    @Published var medDuration: Double = 0
-    @Published var medDosage: Double = 0
+    @Published var medDuration: Double = 0.0
+    @Published var medDosage: Double = 0.0
     @Published var medDosageUnit: String = "mg"
     
     func addMed(context: NSManagedObjectContext) -> Bool {
         let med = Medication(context: context)
         med.name = medName
-        med.duration = medDuration
         med.dosageValue = medDosage
         med.dosageUnit = medDosageUnit
+        med.duration = medDuration
         
         if let _ = try? context.save() {
             return true
@@ -30,8 +30,8 @@ class MedicationViewModel: ObservableObject {
     
     func resetMedData() {
         medName = ""
-        medDuration = 0
-        medDosage = 0
+        medDosage = 0.0
         medDosageUnit = "mg"
+        medDuration = 0.0
     }
 }

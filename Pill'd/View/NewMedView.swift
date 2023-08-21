@@ -45,9 +45,14 @@ struct NewMedView: View {
                     .font(.callout)
                     .foregroundColor(.gray)
                 
-                HStack{
+                HStack {
+                        Picker("Dose", selection: $medModel.medDosage) {
+                            ForEach(Array(stride(from: 0.0, through: 24.0, by: 0.5)), id: \.self) { value in
+                                Text(String(format: "%.1f", value))
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
                     
-                    TextField("Dose", text: $medModel.medDosage)
                     
                     Picker("Pick a unit", selection: $medModel.medDosageUnit) {
                         let values: [String] = ["mg", "g", "mL", "L"]
@@ -55,10 +60,9 @@ struct NewMedView: View {
                             Text(value)
                         }
                     }
-                    .pickerStyle(InlinePickerStyle())
+                    .pickerStyle(MenuPickerStyle())
                 }
             }
-            .frame(alignment: .leading)
             
             Divider()
                 .padding(.vertical, 10)
@@ -75,13 +79,34 @@ struct NewMedView: View {
                             Text(String(format: "%.1f", value))
                         }
                     }
-                    .pickerStyle(InlinePickerStyle())
+                    .pickerStyle(MenuPickerStyle())
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
             Divider()
                 .padding(.vertical, 10)
+            
+            Button {
+                if medModel.addMed(context: newMedViewContext.managedObjectContext) {
+                    newMedViewContext.dismiss()
+                }
+            } label: {
+                Text("Save Medication")
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .foregroundColor(.white)
+                    .background{
+                        Capsule()
+                            .fill(.black)
+                    }
+            }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding(.bottom, 10)
+            .disabled(medModel.medName == "")
+            .opacity(medModel.medName == "" ? 0.6 : 1)
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()

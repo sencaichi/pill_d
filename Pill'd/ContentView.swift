@@ -22,11 +22,6 @@ struct ContentView: View {
             .padding(.bottom, -35)
             
             ZStack(alignment: .bottom){
-                GeometryReader{_ in
-                    VStack{
-                        Text("")
-                    }
-                }
                 
                 ZStack(alignment:. top){
                     Circle()
@@ -84,6 +79,8 @@ struct ContentView: View {
         .preferredColorScheme(.light)
         .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
         .fullScreenCover(isPresented: $medModel.openEditMed) {
+            medModel.resetMedData()
+        } content: {
             NewMedView()
                 .environmentObject(medModel)
         }
@@ -91,8 +88,9 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(MedicationViewModel())
+    }
+}
