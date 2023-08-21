@@ -94,9 +94,9 @@ struct NewMedView: View {
     }
 }
 
-struct NewMedView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewMedView()
-            .environmentObject(MedicationViewModel())
-    }
-}
+//struct NewMedView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewMedView()
+//            .environmentObject(MedicationViewModel())
+//    }
+//}

@@ -9,87 +9,99 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var doseModel: DoseViewModel = .init()
-    @StateObject var medModel: MedicationViewModel = .init()
-    @State var index = 1
-    @State var expand = false
+    @Environment(\.managedObjectContext) var managedObjContext
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name, order: .reverse)]) var med: FetchedResults<Medication>
+    
+    @State private var showingAddView = false
+    
+    //    @StateObject var doseModel = DoseViewModel()
+    //    @StateObject var medModel = MedicationViewModel()
+    //    @State var index = 1
+    //    @State var expand = false
     
     var body: some View {
-        VStack{
-            ZStack{
-                Home()
+        //        VStack{
+        //            ZStack{
+        //                Home()
+        //            }
+        //            .padding(.bottom, -35)
+        //
+        //            ZStack(alignment: .bottom){
+        //                GeometryReader{_ in
+        //                    VStack{
+        //                        Text("")
+        //                    }
+        //                }
+        //
+        //                ZStack(alignment:. top){
+        //                    Circle()
+        //                        .trim(from: 0.5, to: self.expand ? 1 : 0.5)
+        //                        .fill(Color.PinkAccent)
+        //                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+        //
+        //                    ZStack {
+        //
+        //                        Button(action: {
+        //
+        //                        }) {
+        //                            VStack(spacing: 5) {
+        //
+        //                                Image("dose")
+        //                                    .font(.title)
+        //                                    .foregroundColor(.white)
+        //
+        //                                Text("Add Dose")
+        //                                    .fontWeight(.bold)
+        //                                    .foregroundColor(.white)
+        //
+        //                            }
+        //                        }
+        //                        .offset(x: -100, y: 50)
+        //
+        //
+        //                        Button(action: {
+        //                            medModel.openEditMed.toggle()
+        //                        }) {
+        //                            VStack(spacing: 5) {
+        //
+        //                                Image("pill")
+        //                                    .font(.title)
+        //                                    .foregroundColor(.white)
+        //
+        //                                Text("Medication")
+        //                                    .fontWeight(.bold)
+        //                                    .foregroundColor(.white)
+        //
+        //                            }
+        //                        }
+        //                        .offset(x: 100, y: 50)
+        //                    }
+        //                    .opacity(self.expand ? 1 : 0)
+        //                }
+        //                .offset(y: UIScreen.main.bounds.width / 1.6)
+        //            }
+        //            .clipped()
+        //            .offset(y: UIScreen.main.bounds.width / 10)
+        //
+        //            TabBar(index: self.$index, expand: self.$expand)
+        //        }
+        //        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        //        .preferredColorScheme(.light)
+        //        .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
+        //        .fullScreenCover(isPresented: $medModel.openEditMed) {
+        //            NewMedView()
+        //                .environmentObject(medModel)
+        //        }
+        //        .edgesIgnoringSafeArea(.bottom)
+        NavigationView {
+            VStack(alignment: .leading) {
+                Text("\(Int()")
             }
-            .padding(.bottom, -35)
-            
-            ZStack(alignment: .bottom){
-                GeometryReader{_ in
-                    VStack{
-                        Text("")
-                    }
-                }
-                
-                ZStack(alignment:. top){
-                    Circle()
-                        .trim(from: 0.5, to: self.expand ? 1 : 0.5)
-                        .fill(Color.PinkAccent)
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                    
-                    ZStack {
-                        
-                        Button(action: {
-                            
-                        }) {
-                            VStack(spacing: 5) {
-                                
-                                Image("dose")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                
-                                Text("Add Dose")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                
-                            }
-                        }
-                        .offset(x: -100, y: 50)
-                        
-                        
-                        Button(action: {
-                            medModel.openEditMed.toggle()
-                        }) {
-                            VStack(spacing: 5) {
-                                
-                                Image("pill")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                
-                                Text("Medication")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                
-                            }
-                        }
-                        .offset(x: 100, y: 50)
-                    }
-                    .opacity(self.expand ? 1 : 0)
-                }
-                .offset(y: UIScreen.main.bounds.width / 1.6)
-            }
-            .clipped()
-            .offset(y: UIScreen.main.bounds.width / 10)
-            
-            TabBar(index: self.$index, expand: self.$expand)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .preferredColorScheme(.light)
-        .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
-        .fullScreenCover(isPresented: $medModel.openEditMed) {
-            NewMedView()
-                .environmentObject(medModel)
-        }
-        .edgesIgnoringSafeArea(.bottom)
+        
     }
 }
+
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
