@@ -47,13 +47,7 @@ struct NewMedView: View {
                 
                 HStack{
                     
-                    Picker("Dose", selection: $medModel.medDosage) {
-                        ForEach(Array(stride(from: 0.0, through: 100.0, by: 0.5)), id: \.self) { value in
-                            Text(String(format: "%.1f", value))
-                        }
-                    }
-                    .pickerStyle(InlinePickerStyle())
-                    .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 5)
+                    TextField("Dose", text: $medModel.medDosage)
                     
                     Picker("Pick a unit", selection: $medModel.medDosageUnit) {
                         let values: [String] = ["mg", "g", "mL", "L"]
