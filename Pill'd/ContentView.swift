@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
     
@@ -79,6 +80,12 @@ struct ContentView: View {
         .preferredColorScheme(.light)
         .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
         .edgesIgnoringSafeArea(.bottom)
+        .fullScreenCover(isPresented: $medModel.openEditMed) {
+            medModel.resetMedData()
+        } content: {
+            NewMedView()
+                .environmentObject(medModel)
+        }
     }
 }
 

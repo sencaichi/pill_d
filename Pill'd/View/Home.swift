@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Home: View {
     @State private var currentDate: Date = .init()
@@ -35,12 +36,6 @@ struct Home: View {
             
         })
         .vSpacing(.top)
-        .fullScreenCover(isPresented: $medModel.openEditMed) {
-            medModel.resetMedData()
-        } content: {
-            NewMedView()
-                .environmentObject(medModel)
-        }
         .onAppear(perform: {
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
