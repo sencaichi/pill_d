@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct Home: View {
     @State private var currentDate: Date = .init()
@@ -19,7 +18,6 @@ struct Home: View {
     @StateObject var medModel: MedicationViewModel = .init()
     
     @FetchRequest(entity: Dose.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Dose.dateTime, ascending: false)], predicate: nil, animation: .easeInOut) var doses: FetchedResults<Dose>
-    @FetchRequest(entity: Medication.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medication.duration, ascending: false)], predicate: nil, animation: .easeInOut) var meds: FetchedResults<Medication>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
@@ -27,7 +25,7 @@ struct Home: View {
             
             ScrollView(.vertical) {
                 VStack {
-                    MedsView()
+                    DosesView()
                 }
                 .hSpacing(.center)
                 .vSpacing(.center)
@@ -52,47 +50,6 @@ struct Home: View {
             }
         })
     }
-    
-    @ViewBuilder
-    func MedsView() -> some View {
-        VStack(alignment: .leading, spacing: 35) {
-            ForEach(meds) { med in
-                MedRowView(med: med)
-            }
-        }
-        .padding(.leading, 15)
-        .padding(.top, 15)
-    }
-    
-    @ViewBuilder
-    func MedRowView(med: Medication) -> some View {
-            HStack(alignment: .top, spacing: 15) {
-                Circle()
-                    .fill(Color.PinkAccent)
-                    .frame(width: 10, height: 10)
-                    .padding(4)
-                    .overlay {
-                        Circle()
-                            .frame(width: 50, height: 50)
-                            .blendMode(.destinationOver)
-                    }
-                
-                VStack(alignment: .leading, spacing: 8, content: {
-                    Text(med.name ?? "")
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.black)
-                    Label {
-                        Text("\(String(med.duration)) + hours")
-                    } icon: {
-                        Image(systemName: "clock")
-                    }
-                })
-                .padding(15)
-                .hSpacing(.leading)
-                .offset(x: 20, y: -1)
-                .background{RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10)}
-            }
-        }
     
     @ViewBuilder
     func HeaderView() -> some View {
@@ -186,46 +143,46 @@ struct Home: View {
         }
     }
     
-//    @ViewBuilder
-//    func DosesView() -> some View {
-//        VStack(alignment: .leading, spacing: 35) {
-//            ForEach(doses) { dose in
-//                DoseRowView(dose: dose)
-//            }
-//        }
-//        .padding(.leading, 15)
-//        .padding(.top, 15)
-//    }
-//    
-//    @ViewBuilder
-//    func DoseRowView(dose: Dose) -> some View {
-//            HStack(alignment: .top, spacing: 15) {
-//                Circle()
-//                    .fill(Color.PinkAccent)
-//                    .frame(width: 10, height: 10)
-//                    .padding(4)
-//                    .overlay {
-//                        Circle()
-//                            .frame(width: 50, height: 50)
-//                            .blendMode(.destinationOver)
-//                    }
-//                
-//                VStack(alignment: .leading, spacing: 8, content: {
-////                    Text(dose.medication.name)
-////                        .fontWeight(.semibold)
-////                        .foregroundStyle(.black)
-//                    Label {
-//                        Text((dose.dateTime ?? Date()).formatted(date: .omitted, time: .standard))
-//                    } icon: {
-//                        Image(systemName: "clock")
-//                    }
-//                })
-//                .padding(15)
-//                .hSpacing(.leading)
-//                .offset(x: 20, y: -1)
-//                .background(RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10))
-//            }
-//        }
+    @ViewBuilder
+    func DosesView() -> some View {
+        VStack(alignment: .leading, spacing: 35) {
+            ForEach(doses) { dose in
+                DoseRowView(dose: dose)
+            }
+        }
+        .padding(.leading, 15)
+        .padding(.top, 15)
+    }
+    
+    @ViewBuilder
+    func DoseRowView(dose: Dose) -> some View {
+            HStack(alignment: .top, spacing: 15) {
+                Circle()
+                    .fill(Color.PinkAccent)
+                    .frame(width: 10, height: 10)
+                    .padding(4)
+                    .overlay {
+                        Circle()
+                            .frame(width: 50, height: 50)
+                            .blendMode(.destinationOver)
+                    }
+                
+                VStack(alignment: .leading, spacing: 8, content: {
+//                    Text(dose.medication.name)
+//                        .fontWeight(.semibold)
+//                        .foregroundStyle(.black)
+                    Label {
+                        Text((dose.dateTime ?? Date()).formatted(date: .omitted, time: .standard))
+                    } icon: {
+                        Image(systemName: "clock")
+                    }
+                })
+                .padding(15)
+                .hSpacing(.leading)
+                .offset(x: 20, y: -1)
+                .background(RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10))
+            }
+        }
     
     func paginateWeek() {
         if weekSlider.indices.contains(currentWeekIndex) {

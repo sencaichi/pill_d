@@ -14,13 +14,16 @@ struct ContentView: View {
     @StateObject var medModel: MedicationViewModel = .init()
     @State var index = 1
     @State var expand = false
+    @State var selectedTab = "home"
     
     var body: some View {
         VStack{
             ZStack{
                 Home()
+                    .opacity(selectedTab == "home" ? 1 : 0)
+                AccountView()
+                    .opacity(selectedTab == "heart" ? 1 : 0)
             }
-            .padding(.bottom, -35)
             
             ZStack(alignment: .bottom){
                 
@@ -74,7 +77,7 @@ struct ContentView: View {
             .clipped()
             .offset(y: UIScreen.main.bounds.width / 10)
             
-            TabBar(index: self.$index, expand: self.$expand)
+            TabBar(index: self.$index, expand: self.$expand, selectedTab: self.$selectedTab)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .preferredColorScheme(.light)

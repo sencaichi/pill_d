@@ -10,27 +10,25 @@ import SwiftUI
 struct TabBar: View {
     @Binding var index: Int
     @Binding var expand: Bool
+    @Binding var selectedTab: String
     
     var body: some View {
         HStack(spacing: 0) {
                     Button(action: {
-                        if self.index == 2 {
-                            withAnimation(Animation.default.speed(0.6)) {
-                                self.expand.toggle()
-                            }
+                        if self.expand {
+                            self.expand = false
                         }
-                        self.index = 1
+                        self.selectedTab = "home"
                     }) {
                         Image("home")
                             .font(.system(size: 25))
                     }
-                    .foregroundColor(self.index == 1 ? Color.PinkAccent : Color.PinkPilld)
+                    .foregroundColor(self.selectedTab == "home" ? Color.PinkAccent : Color.PinkPilld)
                     .offset(y: 20)
                     
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        self.index = 2
                         withAnimation(Animation.default.speed(0.6)) {
                                 self.expand.toggle()
                         }
@@ -46,12 +44,10 @@ struct TabBar: View {
                     Spacer(minLength: 0)
                     
                     Button(action: {
-                        if self.index == 2 {
-                            withAnimation(Animation.default.speed(0.6)) {
-                                self.expand.toggle()
-                            }
+                        if self.expand {
+                            self.expand = false
                         }
-                        self.index = 3
+                        self.selectedTab = "heart"
                     }) {
                         Image("heart")
                             .font(.system(size: 25))
@@ -59,7 +55,6 @@ struct TabBar: View {
                     .foregroundColor(self.index == 3 ? Color.PinkAccent : Color.PinkPilld)
                     .offset(y: 20)
                 }
-
                 .padding(.horizontal, 35)
                 .padding(.top, 10)
                 .background(Color.white)
