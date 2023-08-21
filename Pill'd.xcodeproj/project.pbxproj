@@ -194,8 +194,8 @@
 		70BE237E2A7879BA00D711A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				70BE23632A78768E00D711A8 /* Home.swift */,
 				7047922C2A59AB7000A9A5DB /* ContentView.swift */,
+				70BE23632A78768E00D711A8 /* Home.swift */,
 				70FEF9212A7996320088C0D5 /* NewDoseView.swift */,
 				70D012042A91A38800DC0E9F /* NewMedView.swift */,
 				70D012002A919EC300DC0E9F /* AccountView.swift */,

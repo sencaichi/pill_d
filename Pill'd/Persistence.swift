@@ -5,7 +5,7 @@
 //  Created by Sen Ayané on 8/19/23.
 //
 
-import Foundation
+import SwiftUI
 import CoreData
 
 struct PersistenceController {

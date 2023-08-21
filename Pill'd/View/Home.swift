@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct Home: View {
+    @StateObject var doseModel: DoseViewModel = .init()
     @State private var currentDate: Date = .init()
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
-    @State private var createNewDose: Bool = false
     @Namespace private var animation
-    @StateObject var doseModel: DoseViewModel = .init()
     
-    @FetchRequest(entity: Dose.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Dose.dateTime, ascending: false)], predicate: nil, animation: .easeInOut) var doses: FetchedResults<Dose>
+    @FetchRequest(entity: Dose.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Dose.dateTime, ascending: true)], predicate: nil, animation: .default) var doses: FetchedResults<Dose>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
@@ -24,7 +23,11 @@ struct Home: View {
             
             ScrollView(.vertical) {
                 VStack {
-                    DosesView()
+                    if doses.isEmpty {
+                        Text("No doses today!")
+                    } else {
+                        DosesView()
+                    }
                 }
                 .hSpacing(.center)
                 .vSpacing(.center)
@@ -155,6 +158,7 @@ struct Home: View {
     
     @ViewBuilder
     func DoseRowView(dose: Dose) -> some View {
+        VStack(alignment: .leading, spacing: 8, content: {
             HStack(alignment: .top, spacing: 15) {
                 Circle()
                     .fill(Color.PinkAccent)
@@ -165,22 +169,24 @@ struct Home: View {
                             .frame(width: 50, height: 50)
                             .blendMode(.destinationOver)
                     }
-                
-                VStack(alignment: .leading, spacing: 8, content: {
-//                    Text(dose.medication.name)
-//                        .fontWeight(.semibold)
-//                        .foregroundStyle(.black)
+                if let medication = dose.medication {
+                    Text(medication.name ?? "")
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.black)
+                }
+                if let dateTime = dose.dateTime {
                     Label {
-                        Text((dose.dateTime ?? Date()).formatted(date: .omitted, time: .standard))
+                        Text("\(dateTime) hours")
                     } icon: {
                         Image(systemName: "clock")
                     }
-                })
+                }
+                }
                 .padding(15)
                 .hSpacing(.leading)
                 .offset(x: 20, y: -1)
                 .background(RoundedRectangle(cornerRadius: 35).fill(Color.PinkPilld).padding(.trailing, 10))
-            }
+        })
         }
     
     func paginateWeek() {

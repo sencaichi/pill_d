@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     
-    @Environment(\.self) var newAccountViewContext
-    @FetchRequest(entity: Medication.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medication.duration, ascending: false)], predicate: nil, animation: .easeInOut) var meds: FetchedResults<Medication>
+    @FetchRequest(entity: Medication.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medication.duration, ascending: false)], animation: .easeInOut) var meds: FetchedResults<Medication>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {

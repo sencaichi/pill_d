@@ -9,7 +9,8 @@ import SwiftUI
 
 struct NewMedView: View {
     @EnvironmentObject var medModel: MedicationViewModel
-    @Environment(\.self) var newMedViewContext
+    @Environment(\.managedObjectContext) var newMedViewContext
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack(spacing: 12) {
             Text("Add Medication")
@@ -17,7 +18,7 @@ struct NewMedView: View {
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
                     Button {
-                        newMedViewContext.dismiss()
+                        dismiss()
                     } label: {
                         Image(systemName: "arrow.left")
                             .font(.title3)
@@ -88,8 +89,8 @@ struct NewMedView: View {
                 .padding(.vertical, 10)
             
             Button {
-                if medModel.addMed(context: newMedViewContext.managedObjectContext) {
-                    newMedViewContext.dismiss()
+                if medModel.addMed(context: newMedViewContext) {
+                    dismiss()
                 }
             } label: {
                 Text("Save Medication")
@@ -113,9 +114,9 @@ struct NewMedView: View {
     }
 }
 
-struct NewMedView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewMedView()
-            .environmentObject(MedicationViewModel())
-    }
-}
+//struct NewMedView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewMedView(medModel: <#MedicationViewModel#>)
+//            .environmentObject(MedicationViewModel())
+//    }
+//}

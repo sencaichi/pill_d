@@ -9,16 +9,17 @@ import SwiftUI
 import CoreData
 
 class DoseViewModel: ObservableObject {
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Medication.name, ascending: true)]) var medications: FetchedResults<Medication>
 
     @Published var openNewDose: Bool = false
     @Published var doseDateTime: Date = Date()
-    @Published var doseMedication: Medication?
+    @Published var doseMedication: FetchedResults<Medication>.Element = Medication(entity: Medication.entity(), insertInto: context)
+    @Published var showDatePicker: Bool = false
 
     func addDose(context: NSManagedObjectContext) -> Bool {
         let dose = Dose(context: context)
+        dose.id = UUID()
         dose.dateTime = doseDateTime
-//        dose.medication = doseMedication
+        dose.medication = doseMedication
         
         if let _ = try? context.save() {
             return true

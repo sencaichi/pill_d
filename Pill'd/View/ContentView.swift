@@ -17,26 +17,29 @@ struct ContentView: View {
     @State var selectedTab = "home"
     
     var body: some View {
-        VStack{
-            ZStack{
-                Home()
-                    .opacity(selectedTab == "home" ? 1 : 0)
-                AccountView()
-                    .opacity(selectedTab == "heart" ? 1 : 0)
-            }
-            
-            ZStack(alignment: .bottom){
-                
+        VStack(spacing: 0){
+            ZStack(alignment: .bottom) {
+                GeometryReader{_ in
+                    VStack{
+                        ZStack{
+                            Home()
+                                .opacity(selectedTab == "home" ? 1 : 0)
+                            AccountView()
+                                .opacity(selectedTab == "heart" ? 1 : 0)
+                        }
+                    }
+                }
                 ZStack(alignment:. top){
                     Circle()
                         .trim(from: 0.5, to: self.expand ? 1 : 0.5)
                         .fill(Color.PinkAccent)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                        .clipped()
+                        .offset(y: UIScreen.main.bounds.width / 15)
                     
                     ZStack {
-                        
                         Button(action: {
-                            
+                            doseModel.openNewDose.toggle()
                         }) {
                             VStack(spacing: 5) {
                                 
@@ -50,7 +53,7 @@ struct ContentView: View {
                                 
                             }
                         }
-                        .offset(x: -100, y: 50)
+                        .offset(x: -100, y: 90)
                         
                         
                         Button(action: {
@@ -68,14 +71,12 @@ struct ContentView: View {
                                 
                             }
                         }
-                        .offset(x: 100, y: 50)
+                        .offset(x: 100, y: 90)
                     }
                     .opacity(self.expand ? 1 : 0)
                 }
-                .offset(y: UIScreen.main.bounds.width / 1.6)
+                .offset(y: UIScreen.main.bounds.width / 1.8)
             }
-            .clipped()
-            .offset(y: UIScreen.main.bounds.width / 10)
             
             TabBar(index: self.$index, expand: self.$expand, selectedTab: self.$selectedTab)
         }
@@ -89,12 +90,17 @@ struct ContentView: View {
             NewMedView()
                 .environmentObject(medModel)
         }
+        .fullScreenCover(isPresented: $doseModel.openNewDose) {
+            doseModel.resetDoseData()
+        } content: {
+            NewDoseView()
+                .environmentObject(doseModel)
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(MedicationViewModel())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
