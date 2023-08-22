@@ -2,10 +2,14 @@ import SwiftUI
 
 struct NewMedView: View {
     
-    @StateObject var medModel: MedicationViewModel = .init()
-    @Environment(\.managedObjectContext) var newMedViewContext
+    @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     @Binding var expand: Bool
+    
+    @State var medName: String
+    @State var dosageUnit: String
+    @State var dosageValue: Double
+    @State var duration: Double
     
     var body: some View {
         VStack(spacing: 12) {
@@ -27,7 +31,7 @@ struct NewMedView: View {
                     .font(.callout)
                     .foregroundColor(.gray)
                 
-                TextField("", text: $medModel.medName)
+                TextField("Enter name", text: $medName)
                     .frame(maxWidth: .infinity)
                     .padding(.top, 10)
             }
@@ -43,7 +47,7 @@ struct NewMedView: View {
                     .foregroundColor(.gray)
                 
                 HStack {
-                        Picker("Dose", selection: $medModel.medDosage) {
+                    Picker("Dose", selection: $dosageValue) {
                             ForEach(Array(stride(from: 0.0, through: 24.0, by: 0.5)), id: \.self) { value in
                                 Text(String(format: "%.1f", value))
                             }
@@ -51,7 +55,7 @@ struct NewMedView: View {
                         .pickerStyle(MenuPickerStyle())
                     
                     
-                    Picker("Pick a unit", selection: $medModel.medDosageUnit) {
+                    Picker("Pick a unit", selection: $dosageUnit) {
                         let values: [String] = ["mg", "g", "mL", "L"]
                         ForEach(values, id: \.self) { value in
                             Text(value)
@@ -71,7 +75,7 @@ struct NewMedView: View {
                 
                 HStack{
                     Text("Hours:")
-                    Picker("Hours", selection: $medModel.medDuration) {
+                    Picker("Hours", selection: $duration) {
                         ForEach(Array(stride(from: 0.0, through: 24.0, by: 0.5)), id: \.self) { value in
                             Text(String(format: "%.1f", value))
                         }
@@ -84,12 +88,17 @@ struct NewMedView: View {
             Divider()
                 .padding(.vertical, 10)
             
-            Button {
-                if medModel.addMed(context: newMedViewContext) {
+            Button(action: {
+                let med = Medication(dosageUnit: dosageUnit, dosageValue: dosageValue, duration: duration, medName: medName, doses: [])
+                do {
+                    context.insert(med)
+                    try context.save()
                     self.expand = false
                     dismiss()
+                } catch {
+                    print(error.localizedDescription)
                 }
-            } label: {
+            }, label: {
                 Text("Save Medication")
                     .font(.callout)
                     .fontWeight(.semibold)
@@ -100,11 +109,11 @@ struct NewMedView: View {
                         Capsule()
                             .fill(.black)
                     }
-            }
+            })
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.bottom, 10)
-            .disabled(medModel.medName == "")
-            .opacity(medModel.medName == "" ? 0.6 : 1)
+            .disabled(medName == "")
+            .opacity(medName == "" ? 0.6 : 1)
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()

@@ -25,7 +25,7 @@ struct TabBar: View {
                                 self.expand.toggle()
                         }
                     }) {
-                        Image("add")
+                        Image("plus")
                             .resizable()
                             .frame(width: 50, height: 50)
                             .padding()

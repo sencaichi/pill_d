@@ -20,7 +20,6 @@ extension View {
 }
 
 extension Color {
-    static let BG = Color("BG")
     static let PinkPilld = Color("PinkPilld")
     static let PinkAccent = Color("PinkAccent")
 }

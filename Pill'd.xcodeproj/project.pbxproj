@@ -16,7 +16,6 @@
 		704792462A59AB7300A9A5DB /* Pill_dUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792452A59AB7300A9A5DB /* Pill_dUITests.swift */; };
 		704792482A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */; };
 		707FC78C2A90461D00E87D4B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707FC78B2A90461D00E87D4B /* CoreData.framework */; };
-		707FC78F2A9046A500E87D4B /* Pill_d.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707FC78D2A9046A500E87D4B /* Pill_d.xcdatamodeld */; };
 		70BE23642A78768E00D711A8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE23632A78768E00D711A8 /* Home.swift */; };
 		70BE23802A78ABC500D711A8 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE237F2A78ABC500D711A8 /* OffsetKey.swift */; };
 		70D011FF2A919CA700DC0E9F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D011FE2A919CA700DC0E9F /* Persistence.swift */; };
@@ -27,6 +26,10 @@
 		70D5AE412A5D04F100400D97 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5AE402A5D04F100400D97 /* Date+Extensions.swift */; };
 		70D5AE432A5D077C00400D97 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D5AE422A5D077C00400D97 /* View+Extensions.swift */; };
 		70FEF9222A7996320088C0D5 /* NewDoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FEF9212A7996320088C0D5 /* NewDoseView.swift */; };
+		B745D7EC2AE1E54C001A1595 /* DosesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745D7EB2AE1E54C001A1595 /* DosesView.swift */; };
+		B745D7EE2AE1EBA1001A1595 /* DoseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745D7ED2AE1EBA1001A1595 /* DoseRowView.swift */; };
+		B79B725C2ADCA96100597DE6 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B725A2ADCA96100597DE6 /* Medication.swift */; };
+		B79B725D2ADCA96100597DE6 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B725B2ADCA96100597DE6 /* Dose.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +62,6 @@
 		704792452A59AB7300A9A5DB /* Pill_dUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITests.swift; sourceTree = "<group>"; };
 		704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		707FC78B2A90461D00E87D4B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		707FC78E2A9046A500E87D4B /* Pill_d.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill_d.xcdatamodel; sourceTree = "<group>"; };
 		70BE23632A78768E00D711A8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "Pill'd/View/Home.swift"; sourceTree = SOURCE_ROOT; };
 		70BE237F2A78ABC500D711A8 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
 		70D011FE2A919CA700DC0E9F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -70,6 +72,10 @@
 		70D5AE402A5D04F100400D97 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		70D5AE422A5D077C00400D97 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		70FEF9212A7996320088C0D5 /* NewDoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDoseView.swift; sourceTree = "<group>"; };
+		B745D7EB2AE1E54C001A1595 /* DosesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosesView.swift; sourceTree = "<group>"; };
+		B745D7ED2AE1EBA1001A1595 /* DoseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseRowView.swift; sourceTree = "<group>"; };
+		B79B725A2ADCA96100597DE6 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
+		B79B725B2ADCA96100597DE6 /* Dose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +167,8 @@
 		704792542A59AC8B00A9A5DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				707FC78D2A9046A500E87D4B /* Pill_d.xcdatamodeld */,
+				B79B725A2ADCA96100597DE6 /* Medication.swift */,
+				B79B725B2ADCA96100597DE6 /* Dose.swift */,
 				70D011FE2A919CA700DC0E9F /* Persistence.swift */,
 			);
 			path = Model;
@@ -194,6 +201,8 @@
 				70D012042A91A38800DC0E9F /* NewMedView.swift */,
 				70D012002A919EC300DC0E9F /* AccountView.swift */,
 				7016CA212A7AF5090085AB0F /* TabBar.swift */,
+				B745D7EB2AE1E54C001A1595 /* DosesView.swift */,
+				B745D7ED2AE1EBA1001A1595 /* DoseRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,7 +280,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					704792262A59AB7000A9A5DB = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -339,7 +348,9 @@
 			files = (
 				70D5AE3F2A5D01BA00400D97 /* DoseViewModel.swift in Sources */,
 				7047922D2A59AB7000A9A5DB /* ContentView.swift in Sources */,
+				B745D7EE2AE1EBA1001A1595 /* DoseRowView.swift in Sources */,
 				7016CA222A7AF5090085AB0F /* TabBar.swift in Sources */,
+				B745D7EC2AE1E54C001A1595 /* DosesView.swift in Sources */,
 				70D012012A919EC300DC0E9F /* AccountView.swift in Sources */,
 				70FEF9222A7996320088C0D5 /* NewDoseView.swift in Sources */,
 				70D5AE412A5D04F100400D97 /* Date+Extensions.swift in Sources */,
@@ -347,8 +358,9 @@
 				70D012032A91A25D00DC0E9F /* MedicationViewModel.swift in Sources */,
 				70D011FF2A919CA700DC0E9F /* Persistence.swift in Sources */,
 				70BE23802A78ABC500D711A8 /* OffsetKey.swift in Sources */,
+				B79B725D2ADCA96100597DE6 /* Dose.swift in Sources */,
+				B79B725C2ADCA96100597DE6 /* Medication.swift in Sources */,
 				70D012052A91A38800DC0E9F /* NewMedView.swift in Sources */,
-				707FC78F2A9046A500E87D4B /* Pill_d.xcdatamodeld in Sources */,
 				70BE23642A78768E00D711A8 /* Home.swift in Sources */,
 				7047922B2A59AB7000A9A5DB /* Pill_dApp.swift in Sources */,
 			);
@@ -391,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -423,6 +436,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -437,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -451,6 +465,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -483,6 +498,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -491,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -675,19 +691,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		707FC78D2A9046A500E87D4B /* Pill_d.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				707FC78E2A9046A500E87D4B /* Pill_d.xcdatamodel */,
-			);
-			currentVersion = 707FC78E2A9046A500E87D4B /* Pill_d.xcdatamodel */;
-			path = Pill_d.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7047921F2A59AB6F00A9A5DB /* Project object */;
 }

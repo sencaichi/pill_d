@@ -1,12 +1,16 @@
 import SwiftUI
-import CoreData
+import SwiftData
 
 struct ContentView: View {
     
-    @StateObject var doseModel: DoseViewModel = .init()
-    @StateObject var medModel: MedicationViewModel = .init()
-    @State var expand = false
+    @State var openNewDose: Bool = false
+    @State var openEditMed: Bool = false
+    @State var expand: Bool = false
     @State var selectedTab = "home"
+    @State var doseDate: Date = .init()
+    @State var showDatePicker: Bool = false
+    
+    @Query private var medications: [Medication]
     
     var body: some View {
         VStack(spacing: 0){
@@ -31,7 +35,7 @@ struct ContentView: View {
                     
                     ZStack {
                         Button(action: {
-                            doseModel.openNewDose.toggle()
+                            openNewDose.toggle()
                         }) {
                             VStack(spacing: 5) {
                                 
@@ -49,7 +53,7 @@ struct ContentView: View {
                         
                         
                         Button(action: {
-                            medModel.openEditMed.toggle()
+                            openEditMed.toggle()
                         }) {
                             VStack(spacing: 5) {
                                 
@@ -76,23 +80,19 @@ struct ContentView: View {
         .preferredColorScheme(.light)
         .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
         .edgesIgnoringSafeArea(.bottom)
-        .fullScreenCover(isPresented: $medModel.openEditMed) {
-            medModel.resetMedData()
+        .fullScreenCover(isPresented: $openEditMed) {
+
         } content: {
-            NewMedView(expand: self.$expand)
-                .environmentObject(medModel)
+            NewMedView(expand: self.$expand, medName: "", dosageUnit: "mg", dosageValue: 0.0, duration: 0.0)
         }
-        .fullScreenCover(isPresented: $doseModel.openNewDose) {
-            doseModel.resetDoseData()
+        .fullScreenCover(isPresented: $openNewDose) {
+            
         } content: {
-            NewDoseView(expand: self.$expand)
-                .environmentObject(doseModel)
+            NewDoseView(medication: medications.first!, expand: self.$expand)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
