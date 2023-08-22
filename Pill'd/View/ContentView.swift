@@ -77,15 +77,17 @@ struct ContentView: View {
         .background(Color.black.opacity(0.05).edgesIgnoringSafeArea(.top))
         .edgesIgnoringSafeArea(.bottom)
         .fullScreenCover(isPresented: $medModel.openEditMed) {
+            self.expand.toggle()
             medModel.resetMedData()
         } content: {
-            NewMedView(expand: self.$expand)
+            NewMedView()
                 .environmentObject(medModel)
         }
         .fullScreenCover(isPresented: $doseModel.openNewDose) {
+            self.expand.toggle()
             doseModel.resetDoseData()
         } content: {
-            NewDoseView(doseModel: doseModel, expand: self.$expand)
+            NewDoseView(doseModel: doseModel)
                 .environmentObject(doseModel)
         }
         .navigationViewStyle(.stack)

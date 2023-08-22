@@ -5,7 +5,6 @@ struct NewMedView: View {
     @StateObject var medModel: MedicationViewModel = .init()
     @Environment(\.managedObjectContext) var newMedViewContext
     @Environment(\.dismiss) var dismiss
-    @Binding var expand: Bool
     
     var body: some View {
         VStack(spacing: 12) {
@@ -86,7 +85,6 @@ struct NewMedView: View {
             
             Button {
                 if medModel.addMed(context: newMedViewContext) {
-                    self.expand = false
                     self.dismiss()
                 }
             } label: {

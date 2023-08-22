@@ -15,6 +15,10 @@
 		7047923C2A59AB7300A9A5DB /* Pill_dTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047923B2A59AB7300A9A5DB /* Pill_dTests.swift */; };
 		704792462A59AB7300A9A5DB /* Pill_dUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792452A59AB7300A9A5DB /* Pill_dUITests.swift */; };
 		704792482A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */; };
+		706869AF2A951ABA00410C34 /* Medication+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706869AB2A951ABA00410C34 /* Medication+CoreDataClass.swift */; };
+		706869B02A951ABA00410C34 /* Medication+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706869AC2A951ABA00410C34 /* Medication+CoreDataProperties.swift */; };
+		706869B12A951ABA00410C34 /* Dose+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706869AD2A951ABA00410C34 /* Dose+CoreDataClass.swift */; };
+		706869B22A951ABA00410C34 /* Dose+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706869AE2A951ABA00410C34 /* Dose+CoreDataProperties.swift */; };
 		707FC78C2A90461D00E87D4B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707FC78B2A90461D00E87D4B /* CoreData.framework */; };
 		707FC78F2A9046A500E87D4B /* Pill_d.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707FC78D2A9046A500E87D4B /* Pill_d.xcdatamodeld */; };
 		70BE23642A78768E00D711A8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE23632A78768E00D711A8 /* Home.swift */; };
@@ -58,6 +62,10 @@
 		704792412A59AB7300A9A5DB /* Pill'dUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pill'dUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		704792452A59AB7300A9A5DB /* Pill_dUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITests.swift; sourceTree = "<group>"; };
 		704792472A59AB7300A9A5DB /* Pill_dUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill_dUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		706869AB2A951ABA00410C34 /* Medication+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+CoreDataClass.swift"; sourceTree = "<group>"; };
+		706869AC2A951ABA00410C34 /* Medication+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		706869AD2A951ABA00410C34 /* Dose+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataClass.swift"; sourceTree = "<group>"; };
+		706869AE2A951ABA00410C34 /* Dose+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dose+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		707FC78B2A90461D00E87D4B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		707FC78E2A9046A500E87D4B /* Pill_d.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill_d.xcdatamodel; sourceTree = "<group>"; };
 		70BE23632A78768E00D711A8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "Pill'd/View/Home.swift"; sourceTree = SOURCE_ROOT; };
@@ -161,6 +169,10 @@
 		704792542A59AC8B00A9A5DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				706869AB2A951ABA00410C34 /* Medication+CoreDataClass.swift */,
+				706869AC2A951ABA00410C34 /* Medication+CoreDataProperties.swift */,
+				706869AD2A951ABA00410C34 /* Dose+CoreDataClass.swift */,
+				706869AE2A951ABA00410C34 /* Dose+CoreDataProperties.swift */,
 				707FC78D2A9046A500E87D4B /* Pill_d.xcdatamodeld */,
 				70D011FE2A919CA700DC0E9F /* Persistence.swift */,
 			);
@@ -343,12 +355,16 @@
 				70D012012A919EC300DC0E9F /* AccountView.swift in Sources */,
 				70FEF9222A7996320088C0D5 /* NewDoseView.swift in Sources */,
 				70D5AE412A5D04F100400D97 /* Date+Extensions.swift in Sources */,
+				706869B02A951ABA00410C34 /* Medication+CoreDataProperties.swift in Sources */,
 				70D5AE432A5D077C00400D97 /* View+Extensions.swift in Sources */,
+				706869B22A951ABA00410C34 /* Dose+CoreDataProperties.swift in Sources */,
 				70D012032A91A25D00DC0E9F /* MedicationViewModel.swift in Sources */,
 				70D011FF2A919CA700DC0E9F /* Persistence.swift in Sources */,
 				70BE23802A78ABC500D711A8 /* OffsetKey.swift in Sources */,
 				70D012052A91A38800DC0E9F /* NewMedView.swift in Sources */,
 				707FC78F2A9046A500E87D4B /* Pill_d.xcdatamodeld in Sources */,
+				706869B12A951ABA00410C34 /* Dose+CoreDataClass.swift in Sources */,
+				706869AF2A951ABA00410C34 /* Medication+CoreDataClass.swift in Sources */,
 				70BE23642A78768E00D711A8 /* Home.swift in Sources */,
 				7047922B2A59AB7000A9A5DB /* Pill_dApp.swift in Sources */,
 			);

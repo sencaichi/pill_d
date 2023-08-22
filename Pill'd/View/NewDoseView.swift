@@ -5,7 +5,6 @@ struct NewDoseView: View {
     @State var doseModel: DoseViewModel
     @Environment(\.managedObjectContext) var newDoseViewContext
     @Environment(\.dismiss) var dismiss
-    @Binding var expand: Bool
     
     @FetchRequest(entity: Medication.entity(), sortDescriptors: []) var medications: FetchedResults<Medication>
     
@@ -16,6 +15,7 @@ struct NewDoseView: View {
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .trailing) {
                     Button {
+                        
                         self.dismiss()
                     } label: {
                         Image(systemName: "arrow.right")
@@ -66,7 +66,6 @@ struct NewDoseView: View {
             
             Button {
                 if doseModel.addDose(context: newDoseViewContext) {
-                    self.expand = false
                     self.dismiss()
                 }
             } label: {
