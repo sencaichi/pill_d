@@ -11,4 +11,4 @@ This project is still very much a work in progress! I wanted to create an app th
 1. CoreData
 2. SwiftUI
 
-!["Home Screen"](https://github.com/sencaichi/pill_d/blob/main/Home%20View.png "Home Screen") !["Your Medications"](https://github.com/sencaichi/pill_d/blob/main/Your%20Medications.png "Your Medications")
+!["Home Screen"]([https://github.com/sencaichi/pill_d/blob/main/Home%20View.png](https://github.com/sencaichi/pill_d/blob/main/homeview.png) "Home Screen") !["Your Medications"]([https://github.com/sencaichi/pill_d/blob/main/Your%20Medications.png](https://github.com/sencaichi/pill_d/blob/main/yourmedications.png)https://github.com/sencaichi/pill_d/blob/main/yourmedications.png "Your Medications")
