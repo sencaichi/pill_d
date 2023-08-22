@@ -85,14 +85,15 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $doseModel.openNewDose) {
             doseModel.resetDoseData()
         } content: {
-            NewDoseView(expand: self.$expand)
+            NewDoseView(doseModel: doseModel, expand: self.$expand)
                 .environmentObject(doseModel)
         }
+        .navigationViewStyle(.stack)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

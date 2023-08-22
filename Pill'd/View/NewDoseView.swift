@@ -2,12 +2,12 @@ import SwiftUI
 
 struct NewDoseView: View {
     
-    @StateObject var doseModel: DoseViewModel = .init()
+    @State var doseModel: DoseViewModel
     @Environment(\.managedObjectContext) var newDoseViewContext
     @Environment(\.dismiss) var dismiss
     @Binding var expand: Bool
     
-    @FetchRequest(entity: Medication.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medication.medName, ascending: true)], animation: .easeInOut) var medications: FetchedResults<Medication>
+    @FetchRequest(entity: Medication.entity(), sortDescriptors: []) var medications: FetchedResults<Medication>
     
     var body: some View {
         VStack(spacing: 15) {
@@ -16,7 +16,7 @@ struct NewDoseView: View {
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .trailing) {
                     Button {
-                        dismiss()
+                        self.dismiss()
                     } label: {
                         Image(systemName: "arrow.right")
                             .font(.title3)
@@ -37,7 +37,6 @@ struct NewDoseView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .overlay(alignment: .bottomTrailing) {
                 Button {
-                    print(newDoseViewContext)
                     doseModel.showDatePicker.toggle()
                 } label: {
                     Image("calendar")
@@ -46,20 +45,19 @@ struct NewDoseView: View {
             }
             
             Divider()
-                .padding(.vertical, 10)
             
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Pick a Medication")
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Pick a Medication:")
                     .font(.title3)
                     .foregroundColor(.gray)
                 
-                Picker("Select a Medication", selection: $doseModel.doseName) {
-                    ForEach(medications, id: \.self) { medication in
+                Picker("Pick a Medication", selection: $doseModel.doseMed) {
+                    ForEach(Array(medications), id: \.self) { (medication: Medication) in
                         Text(medication.medName ?? "")
+                            .tag(medication.id)
                     }
                 }
                 .pickerStyle(InlinePickerStyle())
-                .padding()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -69,7 +67,7 @@ struct NewDoseView: View {
             Button {
                 if doseModel.addDose(context: newDoseViewContext) {
                     self.expand = false
-                    dismiss()
+                    self.dismiss()
                 }
             } label: {
                 Text("Save Dose")

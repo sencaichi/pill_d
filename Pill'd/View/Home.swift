@@ -162,12 +162,13 @@ struct Home: View {
                             .frame(width: 50, height: 50)
                             .blendMode(.destinationOver)
                     }
-                    Text(dose.title ?? "None")
+                    Text(dose.title ?? "Sample Medication")
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
                 if let dateTime = dose.dateTime {
                     Label {
-                        Text("\(dateTime) hours")
+                        let date = dateTime.format("h:mm a")
+                        Text(date)
                     } icon: {
                         Image(systemName: "clock")
                     }
@@ -196,3 +197,9 @@ struct Home: View {
         }
     }
 }
+//
+//struct Home_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Home()
+//    }
+//}

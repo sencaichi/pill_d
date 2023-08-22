@@ -14,7 +14,7 @@ struct NewMedView: View {
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
                     Button {
-                        dismiss()
+                        self.dismiss()
                     } label: {
                         Image(systemName: "arrow.left")
                             .font(.title3)
@@ -87,7 +87,7 @@ struct NewMedView: View {
             Button {
                 if medModel.addMed(context: newMedViewContext) {
                     self.expand = false
-                    dismiss()
+                    self.dismiss()
                 }
             } label: {
                 Text("Save Medication")
