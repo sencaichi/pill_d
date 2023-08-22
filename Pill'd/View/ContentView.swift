@@ -12,7 +12,6 @@ struct ContentView: View {
     
     @StateObject var doseModel: DoseViewModel = .init()
     @StateObject var medModel: MedicationViewModel = .init()
-    @State var index = 1
     @State var expand = false
     @State var selectedTab = "home"
     
@@ -78,7 +77,7 @@ struct ContentView: View {
                 .offset(y: UIScreen.main.bounds.width / 1.8)
             }
             
-            TabBar(index: self.$index, expand: self.$expand, selectedTab: self.$selectedTab)
+            TabBar(expand: self.$expand, selectedTab: self.$selectedTab)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .preferredColorScheme(.light)
@@ -87,20 +86,20 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $medModel.openEditMed) {
             medModel.resetMedData()
         } content: {
-            NewMedView()
+            NewMedView(expand: self.$expand)
                 .environmentObject(medModel)
         }
         .fullScreenCover(isPresented: $doseModel.openNewDose) {
             doseModel.resetDoseData()
         } content: {
-            NewDoseView()
+            NewDoseView(expand: self.$expand)
                 .environmentObject(doseModel)
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}

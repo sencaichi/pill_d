@@ -17,7 +17,7 @@ class MedicationViewModel: ObservableObject {
     
     func addMed(context: NSManagedObjectContext) -> Bool {
         let med = Medication(context: context)
-        med.name = medName
+        med.medName = medName
         med.dosageValue = medDosage
         med.dosageUnit = medDosageUnit
         med.duration = medDuration

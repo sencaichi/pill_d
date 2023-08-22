@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct NewMedView: View {
-    @EnvironmentObject var medModel: MedicationViewModel
+    
+    @StateObject var medModel: MedicationViewModel = .init()
     @Environment(\.managedObjectContext) var newMedViewContext
     @Environment(\.dismiss) var dismiss
+    @Binding var expand: Bool
+    
     var body: some View {
         VStack(spacing: 12) {
             Text("Add Medication")
@@ -90,6 +93,7 @@ struct NewMedView: View {
             
             Button {
                 if medModel.addMed(context: newMedViewContext) {
+                    self.expand = false
                     dismiss()
                 }
             } label: {
@@ -113,10 +117,3 @@ struct NewMedView: View {
         .padding()
     }
 }
-
-//struct NewMedView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewMedView(medModel: <#MedicationViewModel#>)
-//            .environmentObject(MedicationViewModel())
-//    }
-//}

@@ -8,22 +8,35 @@
 import SwiftUI
 
 struct NewDoseView: View {
-    @EnvironmentObject var doseModel: DoseViewModel
+    
+    @StateObject var doseModel: DoseViewModel = .init()
     @Environment(\.managedObjectContext) var newDoseViewContext
     @Environment(\.dismiss) var dismiss
-    @FetchRequest(entity: Medication.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medication.name, ascending: true)], animation: .easeInOut) var medications: FetchedResults<Medication>
+    @Binding var expand: Bool
+    
+    @FetchRequest(entity: Medication.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medication.medName, ascending: true)], animation: .easeInOut) var medications: FetchedResults<Medication>
+    
     var body: some View {
-        VStack{
+        VStack(spacing: 15) {
             Text("New Dose")
                 .font(.title3.bold())
                 .frame(maxWidth: .infinity)
+                .overlay(alignment: .trailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "arrow.right")
+                            .font(.title3)
+                            .foregroundColor(.black)
+                    }
+                }
             
             VStack(alignment: .leading, spacing: 12) {
                 Text("Dose Time")
-                    .font(.caption)
+                    .font(.title3)
                     .foregroundColor(.gray)
                 
-                Text(doseModel.doseDateTime.formatted(date: .abbreviated, time: .omitted) + ", " + doseModel.doseDateTime.formatted(date: .omitted, time: .shortened))
+                Text(doseModel.doseDateTime.format("MMMM d, yyyy, h:mm a"))
                     .font(.callout)
                     .fontWeight(.semibold)
                     .padding(.top, 8)
@@ -31,6 +44,7 @@ struct NewDoseView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .overlay(alignment: .bottomTrailing) {
                 Button {
+                    print(newDoseViewContext)
                     doseModel.showDatePicker.toggle()
                 } label: {
                     Image("calendar")
@@ -38,25 +52,43 @@ struct NewDoseView: View {
                 }
             }
             
+            Divider()
+                .padding(.vertical, 10)
             
-            Picker("Select a Medication", selection: $doseModel.doseMedication) {
-                            ForEach(medications, id: \.self) { medication in
-                                Text(medication.name ?? "Unknown Medication")
-                            }
-                        }
-                        .pickerStyle(.menu)
-                        .padding()
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Pick a Medication")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                
+                Picker("Select a Medication", selection: $doseModel.doseName) {
+                    ForEach(medications, id: \.self) { medication in
+                        Text(medication.medName ?? "")
+                    }
+                }
+                .pickerStyle(InlinePickerStyle())
+                .padding()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Divider()
+                .padding(.vertical, 10)
             
             Button {
                 if doseModel.addDose(context: newDoseViewContext) {
+                    self.expand = false
                     dismiss()
                 }
             } label: {
-                Text("Add Dose")
+                Text("Save Dose")
                     .font(.callout)
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
+                    .foregroundColor(.white)
+                    .background{
+                        Capsule()
+                            .fill(.black)
+                    }
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
@@ -71,7 +103,7 @@ struct NewDoseView: View {
                             doseModel.showDatePicker = false
                         }
                     
-                    DatePicker.init("", selection: $doseModel.doseDateTime, in: Date.distantPast...Date.distantFuture)
+                    DatePicker.init("Date", selection: $doseModel.doseDateTime, in: Date.distantPast...Date.distantFuture)
                         .datePickerStyle(.graphical)
                         .labelsHidden()
                         .padding()
@@ -83,4 +115,3 @@ struct NewDoseView: View {
         }
     }
 }
-

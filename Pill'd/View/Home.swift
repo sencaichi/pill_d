@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Home: View {
-    @StateObject var doseModel: DoseViewModel = .init()
     @State private var currentDate: Date = .init()
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
@@ -16,6 +15,7 @@ struct Home: View {
     @Namespace private var animation
     
     @FetchRequest(entity: Dose.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Dose.dateTime, ascending: true)], predicate: nil, animation: .default) var doses: FetchedResults<Dose>
+
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
@@ -169,11 +169,9 @@ struct Home: View {
                             .frame(width: 50, height: 50)
                             .blendMode(.destinationOver)
                     }
-                if let medication = dose.medication {
-                    Text(medication.name ?? "")
+                    Text(dose.title ?? "None")
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
-                }
                 if let dateTime = dose.dateTime {
                     Label {
                         Text("\(dateTime) hours")

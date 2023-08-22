@@ -5,7 +5,7 @@
 //  Created by Sen Ayané on 8/19/23.
 //
 
-import SwiftUI
+import Foundation
 import CoreData
 
 struct PersistenceController {
@@ -26,6 +26,11 @@ struct PersistenceController {
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Pill_d")
+        do {
+            try container.persistentStoreCoordinator.destroyPersistentStore(at: container.persistentStoreDescriptions.first!.url!, type: .sqlite, options: nil)
+        } catch {
+            print(error)
+        }
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }

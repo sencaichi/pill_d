@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TabBar: View {
-    @Binding var index: Int
     @Binding var expand: Bool
     @Binding var selectedTab: String
     
@@ -52,7 +51,7 @@ struct TabBar: View {
                         Image("heart")
                             .font(.system(size: 25))
                     }
-                    .foregroundColor(self.index == 3 ? Color.PinkAccent : Color.PinkPilld)
+                    .foregroundColor(self.selectedTab == "heart" ? Color.PinkAccent : Color.PinkPilld)
                     .offset(y: 20)
                 }
                 .padding(.horizontal, 35)
