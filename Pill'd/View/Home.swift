@@ -1,10 +1,3 @@
-//
-//  Home.swift
-//  Pill'd
-//
-//  Created by Sen Ayané on 7/31/23.
-//
-
 import SwiftUI
 
 struct Home: View {

@@ -1,10 +1,3 @@
-//
-//  AccountView.swift
-//  Pill'd
-//
-//  Created by Sen Ayané on 8/19/23.
-//
-
 import SwiftUI
 
 struct AccountView: View {

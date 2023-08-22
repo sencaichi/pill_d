@@ -1,10 +1,3 @@
-//
-//  TabBar.swift
-//  Pill'd
-//
-//  Created by Sen Ayané on 8/2/23.
-//
-
 import SwiftUI
 
 struct TabBar: View {

@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Pill'd
-//
-//  Created by Sen Ayané on 7/8/23.
-//
-
 import SwiftUI
 import CoreData
 

@@ -1,10 +1,3 @@
-//
-//  NewDoseView.swift
-//  Pill'd
-//
-//  Created by Sen Ayané on 8/1/23.
-//
-
 import SwiftUI
 
 struct NewDoseView: View {
