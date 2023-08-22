@@ -11,3 +11,4 @@ This project is still very much a work in progress! I wanted to create an app th
 1. CoreData
 2. SwiftUI
 
+!["Home Screen"](https://github.com/sencaichi/pill_d/blob/main/Home%20View.png) !["Home Screen"](https://github.com/sencaichi/pill_d/blob/main/Your%20Medications.png)
