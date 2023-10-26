@@ -31,6 +31,8 @@
 		B79B725C2ADCA96100597DE6 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B725A2ADCA96100597DE6 /* Medication.swift */; };
 		B79B725D2ADCA96100597DE6 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B725B2ADCA96100597DE6 /* Dose.swift */; };
 		B7C391092AEABB0F00499D49 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B7C391082AEABB0F00499D49 /* .gitignore */; };
+		B7DD06752B093A1A0030403A /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD06742B093A1A0030403A /* Onboarding.swift */; };
+		B7DD06772B093A250030403A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD06762B093A250030403A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		B79B725A2ADCA96100597DE6 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		B79B725B2ADCA96100597DE6 /* Dose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
 		B7C391082AEABB0F00499D49 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B7DD06742B093A1A0030403A /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		B7DD06762B093A250030403A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,8 @@
 				7016CA212A7AF5090085AB0F /* TabBar.swift */,
 				B745D7EB2AE1E54C001A1595 /* DosesView.swift */,
 				B745D7ED2AE1EBA1001A1595 /* DoseRowView.swift */,
+				B7DD06742B093A1A0030403A /* Onboarding.swift */,
+				B7DD06762B093A250030403A /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7DD06752B093A1A0030403A /* Onboarding.swift in Sources */,
 				70D5AE3F2A5D01BA00400D97 /* DoseViewModel.swift in Sources */,
 				7047922D2A59AB7000A9A5DB /* ContentView.swift in Sources */,
 				B745D7EE2AE1EBA1001A1595 /* DoseRowView.swift in Sources */,
@@ -365,6 +372,7 @@
 				B79B725D2ADCA96100597DE6 /* Dose.swift in Sources */,
 				B79B725C2ADCA96100597DE6 /* Medication.swift in Sources */,
 				70D012052A91A38800DC0E9F /* NewMedView.swift in Sources */,
+				B7DD06772B093A250030403A /* LoginView.swift in Sources */,
 				70BE23642A78768E00D711A8 /* Home.swift in Sources */,
 				7047922B2A59AB7000A9A5DB /* Pill_dApp.swift in Sources */,
 			);
