@@ -9,7 +9,6 @@ public class Medication: Identifiable {
     var dosageValue: Double
     var duration: Double
     @Relationship(inverse: \Dose.medication) var doses: [Dose]?
-//    var doses: [Dose?]
     
 
     init(dosageUnit: String = "mg", dosageValue: Double = 0.0, duration: Double = 0.0, medName: String = "", doses: [Dose]? = []) {

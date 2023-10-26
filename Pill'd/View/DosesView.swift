@@ -1,16 +1,11 @@
-//
-//  DosesView.swift
-//  Pill'd
-//
-//  Created by Sen Cai on 10/19/23.
-//
-
 import SwiftUI
 import SwiftData
 
 struct DosesView: View {
+    
     @Binding var currentDate: Date
     @Query private var doses: [Dose]
+    
     init(currentDate: Binding<Date>) {
         self._currentDate = currentDate
         let calendar = Calendar.current
@@ -25,6 +20,7 @@ struct DosesView: View {
         ]
         self._doses = Query(filter: predicate, sort: sortDescriptor, animation: .snappy)
     }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 35) {
                     ForEach(doses) { dose in

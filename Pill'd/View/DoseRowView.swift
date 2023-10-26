@@ -1,17 +1,12 @@
-//
-//  DoseRowView.swift
-//  Pill'd
-//
-//  Created by Sen Cai on 10/19/23.
-//
-
 import SwiftUI
 import SwiftData
 
 @available(iOS 17.0, *)
 struct DoseRowView: View {
+    
     @Bindable var dose: Dose
     @Environment(\.modelContext) private var context
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8, content: {
             HStack(alignment: .top, spacing: 15) {

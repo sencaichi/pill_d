@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct Home: View {
+    
     @State private var currentDate: Date = .init()
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
