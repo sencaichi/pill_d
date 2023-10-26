@@ -30,6 +30,7 @@
 		B745D7EE2AE1EBA1001A1595 /* DoseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745D7ED2AE1EBA1001A1595 /* DoseRowView.swift */; };
 		B79B725C2ADCA96100597DE6 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B725A2ADCA96100597DE6 /* Medication.swift */; };
 		B79B725D2ADCA96100597DE6 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B725B2ADCA96100597DE6 /* Dose.swift */; };
+		B7C391092AEABB0F00499D49 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B7C391082AEABB0F00499D49 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		B745D7ED2AE1EBA1001A1595 /* DoseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseRowView.swift; sourceTree = "<group>"; };
 		B79B725A2ADCA96100597DE6 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		B79B725B2ADCA96100597DE6 /* Dose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
+		B7C391082AEABB0F00499D49 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		7047921E2A59AB6F00A9A5DB = {
 			isa = PBXGroup;
 			children = (
+				B7C391082AEABB0F00499D49 /* .gitignore */,
 				704792292A59AB7000A9A5DB /* Pill'd */,
 				7047923A2A59AB7300A9A5DB /* Pill'dTests */,
 				704792442A59AB7300A9A5DB /* Pill'dUITests */,
@@ -321,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				704792322A59AB7200A9A5DB /* Preview Assets.xcassets in Resources */,
+				B7C391092AEABB0F00499D49 /* .gitignore in Resources */,
 				7047922F2A59AB7200A9A5DB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

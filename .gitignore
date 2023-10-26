@@ -1,0 +1,21 @@
+### Xcode ###
+## User settings
+xcuserdata/
+
+## Build generated
+build/
+DerivedData/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
