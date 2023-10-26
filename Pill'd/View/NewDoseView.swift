@@ -20,6 +20,7 @@ struct NewDoseView: View {
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .trailing) {
                     Button(action: {
+                        self.expand = false
                         dismiss()
                     }, label: {
                         Image(systemName: "arrow.right")
